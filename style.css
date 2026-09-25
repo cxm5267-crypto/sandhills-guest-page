@@ -1,0 +1,60 @@
+/* Sandhills Week — styles for the [sandhills_week] page.
+   Fetched live by the plugin from the public page repo, so edits here go live
+   within the hour without reinstalling anything. The plugin carries a copy as
+   a fallback if this file cannot be fetched. */
+
+/* Palette taken from the theme: cream #F8F5EF, ink #1F1F1F, brand green #3F5A48 */
+.sandhills-week{--sw-green:#3F5A48;--sw-ink:#1F1F1F;--sw-cream:#F8F5EF;--sw-line:rgba(31,31,31,.12);
+  --sw-muted:rgba(31,31,31,.62);max-width:54rem;margin:0 auto;line-height:1.6}
+
+/* Headings: a green eyebrow rule rather than a heavy underline */
+.sandhills-week .sw-h2,.sandhills-week h2{margin:3rem 0 1.25rem;padding:0 0 .5rem;font-size:1.5rem;
+  line-height:1.2;letter-spacing:-.01em;color:var(--sw-green);border:0;position:relative}
+.sandhills-week .sw-h2:after,.sandhills-week h2:after{content:"";position:absolute;left:0;bottom:0;
+  width:2.5rem;height:3px;background:var(--sw-green);border-radius:2px}
+.sandhills-week h2:first-child,.sandhills-week .sw-h2:first-child{margin-top:0}
+.sandhills-week .sw-updated{display:inline-block;margin:0 0 2rem;padding:.3rem .7rem;font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--sw-green);
+  border:1px solid rgba(63,90,72,.3);border-radius:999px}
+.sandhills-week .sw-note{font-size:.8rem;color:var(--sw-muted);margin:.75rem 0 0}
+
+/* Weather: a row of cards that scrolls on small screens */
+.sw-wx-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.6rem;margin:1.25rem 0 0}
+.sw-wx{display:flex;flex-direction:column;gap:.15rem;padding:.85rem .7rem;background:#fff;
+  border:1px solid var(--sw-line);border-radius:10px;min-width:0}
+.sw-wx.is-today{background:var(--sw-green);border-color:var(--sw-green)}
+.sw-wx.is-today *{color:var(--sw-cream)!important}
+.sw-wx-day{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sw-muted)}
+.sw-wx-hi{font-size:1.5rem;line-height:1.1;font-weight:600;color:var(--sw-ink)}
+.sw-wx-lo{font-size:.75rem;color:var(--sw-muted)}
+.sw-wx-desc{font-size:.75rem;color:var(--sw-ink);opacity:.8;margin-top:.15rem}
+.sw-wx-rain{font-size:.72rem;font-weight:600;color:var(--sw-green)}
+
+/* Each day is a card */
+.sandhills-week .sw-day{background:#fff;border:1px solid var(--sw-line);border-radius:12px;
+  padding:1.35rem 1.5rem;margin:0 0 .85rem}
+.sandhills-week .sw-day h3{margin:0 0 .35rem;font-size:1.05rem;line-height:1.3;color:var(--sw-green);
+  letter-spacing:.01em;border:0;padding:0}
+.sandhills-week .sw-day ul{list-style:none;margin:0;padding:0}
+.sandhills-week .sw-day li{padding:.7rem 0 .7rem 1rem;border-top:1px solid var(--sw-line);
+  position:relative;font-size:.96rem}
+.sandhills-week .sw-day li:before{content:"";position:absolute;left:0;top:1.15rem;width:4px;height:4px;
+  border-radius:50%;background:var(--sw-green);opacity:.45}
+.sandhills-week .sw-day li strong{color:var(--sw-ink);font-weight:650}
+
+/* Prose blocks after the days */
+.sandhills-week p{margin:0 0 1rem}
+.sandhills-week a{color:var(--sw-green);text-underline-offset:.15em}
+.sandhills-week a:hover{text-decoration-thickness:2px}
+
+@media (max-width:900px){
+  .sw-wx-grid{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(6.2rem,1fr);
+    overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem;
+    -webkit-overflow-scrolling:touch}
+  .sw-wx{scroll-snap-align:start}
+}
+@media (max-width:600px){
+  .sandhills-week{line-height:1.55}
+  .sandhills-week .sw-day{padding:1.1rem 1.15rem;border-radius:10px}
+  .sandhills-week .sw-h2,.sandhills-week h2{font-size:1.3rem;margin-top:2.25rem}
+}
